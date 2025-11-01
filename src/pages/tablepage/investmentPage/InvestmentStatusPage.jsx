@@ -42,7 +42,12 @@ const InvestmentStatusPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getAllCompaniesSorted(selectedSortValue);
+        // investmentAmount 정렬은 서버가 지원하지 않으므로 클라이언트에서 처리
+        const serverSortValue = selectedSortValue.startsWith('investmentAmount') 
+          ? 'realInvestmentAmount_desc'  // 기본값으로 fallback
+          : selectedSortValue;
+        
+        const data = await getAllCompaniesSorted(serverSortValue);
         setInvestmentData(data); // 전체 데이터를 상태에 저장
         const filtered = data.filter(
           (investment) =>
