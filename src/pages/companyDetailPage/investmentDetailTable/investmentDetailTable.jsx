@@ -107,7 +107,7 @@ const InvestmentStatus = () => {
               <span className={styles.totalMoney}>
                 총
                 {allInvestments.reduce(
-                  (acc, inv) => acc + inv.investedAmount,
+                  (acc, inv) => acc + inv.amount,
                   0
                 )}
                 억 원
@@ -128,7 +128,7 @@ const InvestmentStatus = () => {
                       {index + 1 + (currentPage - 1) * itemsPerPage}위
                     </span>
                     <span className={table.listtitle}>
-                      {inv.investedAmount}억 원
+                      {inv.amount}억 원
                     </span>
                     <div className={table.commentTo}>
                       {inv.comment || "코멘트 없음"}

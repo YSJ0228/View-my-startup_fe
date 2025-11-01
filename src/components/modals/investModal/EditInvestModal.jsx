@@ -41,7 +41,7 @@ const EditInvestModal = ({
   useEffect(() => {
     if (selectedInvestor) {
       setName(selectedInvestor.investorName);
-      setAmount(selectedInvestor.investedAmount);
+      setAmount(selectedInvestor.amount); // API 응답은 amount 필드 사용
       setComment(selectedInvestor.comment);
       setPassword("");
     }
